@@ -1,0 +1,25 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "description": "file watchers test",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "d08ble",
+  "license": "ISC",
+  "dependencies": {
+    "sane": "^0.8.0",
+    "gerard": "^0.1.0",
+    "miniwatch": "^0.1.1",
+    "fs-watch-tree": "^0.2.5",
+    "saw": "^1.0.7",
+    "fileset": "^0.1.5",
+    "duo-watch": "^0.1.1",
+    "dirwatcher": "^2.0.0",
+    "bewitch": "^0.2.2",
+    "beholder": "^0.2.0",
+    "fireworm": "^0.6.6",
+    "wtchr": "0.0.1"
+  }
+}
