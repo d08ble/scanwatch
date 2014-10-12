@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/d08ble/scanwatch",
   "dependencies": {
+    "minimatch": "^1.0.0",
     "underscore": "^1.7.0",
     "path": "^0.4.9",
     "walkdir": "0.0.7",
