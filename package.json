@@ -1,6 +1,6 @@
 {
   "name": "scanwatch",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "file watch solution",
   "main": "scanwatch.js",
   "scripts": {
@@ -14,9 +14,15 @@
     "watch"
   ],
   "author": "d08ble",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/d08ble/scanwatch/issues"
   },
-  "homepage": "https://github.com/d08ble/scanwatch"
+  "homepage": "https://github.com/d08ble/scanwatch",
+  "dependencies": {
+    "underscore": "^1.7.0",
+    "path": "^0.4.9",
+    "walkdir": "0.0.7",
+    "node-watch": "^0.3.4"
+  }
 }

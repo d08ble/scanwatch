@@ -165,6 +165,43 @@ function test_fileset() {
 }
 // fileset ]
 
+// scanwatch [
+function test_scanwatch() {
+  var scanwatch = require('../scanwatch')
+
+  var options = {
+    debug: 1,
+    common: {
+      ignore: [
+        '.git',
+        '.git/**',
+        /^test\/.*/,
+        'node_modules',
+        'node_modules/**',
+        'node_modules/**/.*',
+        'node_modules/**/.*/**'
+//        /\/node_modules.*/
+      ]
+    },
+    paths: {}
+  }
+  options.paths[__dirname+'/..'] = {
+    ignore: [
+      /^\.idea.*/
+    ]
+  }
+  options.paths[__dirname+'/../node_modules'] = {}
+
+  scanwatch.setup(options, function fileChanged(type, path) {
+    if (type == 'skip') {
+//    console.log('[skipping]', path)
+      return
+    }
+    console.log(type, path)
+  })
+}
+// scanwatch ]
+
 // run test [
 
 //test_sane()
@@ -174,6 +211,7 @@ function test_fileset() {
 //test_watchTree()
 //test_saw()
 //test_fileset()
+test_scanwatch()
 
 // run test ]
 
