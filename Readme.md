@@ -1,9 +1,9 @@
-# File watcher
+# File watcher for Node
 
 Usage:
 
 ```javascript
-  var scanwatch = require('../scanwatch')
+  var scanwatch = require('scanwatch')
 
   var options = {
     debug: 1,
@@ -21,12 +21,12 @@ Usage:
     },
     paths: {}
   }
-  options.paths[__dirname+'/..'] = {
+  options.paths[__dirname] = {
     ignore: [
       /^\.idea.*/
     ]
   }
-  options.paths[__dirname+'/../node_modules'] = {}
+  options.paths[__dirname+'/node_modules'] = {}
 
   scanwatch.setup(options, function fileChanged(type, path) {
     if (type == 'skip') {
