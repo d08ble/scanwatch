@@ -111,6 +111,8 @@ function setup(settings, callback) {
   _.each(watchList, function(dir) {
     log(' '+dir);
     watch(dir, { recursive: false, followSymLinks: false }, function(filename) {
+      if (checkContainsPathComponent(dir, null, path))
+        return
       filename = path.resolve(filename);
       // ON FILE/DIR CHANGED [
 //      log(filename+' changed.');
