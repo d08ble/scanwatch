@@ -114,7 +114,7 @@ function setup(settings, callback) {
     log(' '+dir);
     watch(dir, { recursive: false, followSymLinks: false }, function(filename) {
       var ignored = _.find(normalizedPaths, function(o, dir) {
-        return checkContainsPathComponent(dir, o, path)
+        return filename.indexOf(dir) == 0 && checkContainsPathComponent(dir, o, filename)
       })
       if (ignored)
         return

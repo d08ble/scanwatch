@@ -1,6 +1,6 @@
 {
   "name": "scanwatch",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "file watch solution",
   "main": "scanwatch.js",
   "scripts": {
