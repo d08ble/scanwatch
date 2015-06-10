@@ -106,6 +106,8 @@ function setup(settings, callback) {
   // WATCH [
   // todo: use right watcher, fix for new/delete events, add watcher for new files [
   // todo: use right watcher, fix for new/delete events, add watcher for new files ]
+  // done: fixed ignore subdirs [
+  // done: fixed ignore subdirs ]
 
   log('Watch for changes [');
   _.each(watchList, function(dir) {
@@ -127,7 +129,6 @@ function setup(settings, callback) {
   log('Watch for changes ]');
 
   // WATCH ]
-
 }
 // setup ]
 
