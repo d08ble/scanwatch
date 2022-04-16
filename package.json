@@ -1,29 +1,33 @@
 {
-  "name": "scanwatch",
-  "version": "0.1.5",
-  "description": "file watch solution",
-  "main": "scanwatch.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+   "author": {
+    "name": "d08ble"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/d08ble/scanwatch.git"
-  },
-  "keywords": [
-    "watch"
-  ],
-  "author": "d08ble",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/d08ble/scanwatch/issues"
   },
-  "homepage": "https://github.com/d08ble/scanwatch",
+  "bundleDependencies": false,
   "dependencies": {
     "minimatch": "^1.0.0",
-    "underscore": "^1.7.0",
+    "node-watch": "^0.3.4",
     "path": "^0.4.9",
-    "walkdir": "0.0.7",
-    "node-watch": "^0.3.4"
-  }
+    "underscore": "^1.7.0",
+    "walkdir": "0.0.7"
+  },
+  "deprecated": false,
+  "description": "file watch solution",
+  "homepage": "https://github.com/d08ble/scanwatch",
+  "keywords": [
+    "watch"
+  ],
+  "license": "MIT",
+  "main": "scanwatch.js",
+  "name": "scanwatch",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/d08ble/scanwatch.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "0.1.8"
 }
