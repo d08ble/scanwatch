@@ -96,15 +96,21 @@ scanwatch.setup(options, function fileChanged(type, path) {
 #### options configuration 
 
 ```debug: 0|1``` console log debug information
+
 ```common = {}``` common options 
+
 ```common.ignore = []``` ignore patterns array with regex or minimist format
+
 ```paths = {}``` paths object. each path is key like ```options.paths[__dirname+'/node_modules'] = {}```
 
 #### callback events
 
 ```scan``` - initial scan
+
 ```skip``` - file skipped
+
 ```changed``` - file changed
+
 ```deleted``` - file deleted
 
 #### Code and architecture
@@ -125,7 +131,7 @@ open http://localhost:3070/
 
 and see code docs like this
 
-![scanwatch live docs](/assets/screenshot_docs.png | width=50)
+<img src="/assets/screenshot_docs.png" width="320px">
 
 ## 💳 Support
 
