@@ -14,8 +14,7 @@ Scanwatch has following features
 
 ## Version history
 
-scanwatch version 0.1.8 
-See verison history for details
+scanwatch version 0.1.8 (see version history below for details)
 
 ## 🏄‍♂️ Quick start
 
@@ -60,7 +59,6 @@ Usage example:
         'node_modules/**',
         'node_modules/**/.*',
         'node_modules/**/.*/**'
-//        /\/node_modules.*/
       ]
     },
     paths: {}
@@ -89,14 +87,25 @@ Scanwatch use simple API for your files
 
 Scanwatch your paths
 
+```
+scanwatch.setup(options, function fileChanged(type, path) {
+  ...
+})
+```
+
 #### options configuration 
+
+```debug: 0|1``` console log debug information
+```common = {}``` common options 
+```common.ignore = []``` ignore patterns array with regex or minimist format
+```paths = {}``` paths object. each path is key like ```options.paths[__dirname+'/node_modules'] = {}```
 
 #### callback events
 
-scan - initial scan
-skip - file skipped
-changed - file changed
-deleted - file deleted
+```scan``` - initial scan
+```skip``` - file skipped
+```changed``` - file changed
+```deleted``` - file deleted
 
 #### Code and architecture
 
@@ -114,15 +123,20 @@ livecomment --path node_modules/scanwatch
 
 open http://localhost:3070/
 
-## 🤑 Support
+and see code docs like this
 
-Become a Github Sponsor 
+![scanwatch live docs](/assets/screenshot_docs.png)
+
+## 💳 Support
+
+Please become Github Sponsor or donate for support scanwatch and other projects development
+
 Donate with crypto:
-BTC:
-ETH:
-Polkadot:
-Casper:
-Paypal
+- BTC: ```bc1q5ad4pzxxqmc6rehy2y2fn58utm5jkhwphznruj```
+- ETH:
+- Polkadot:
+- Casper:
+- Paypal
 
 ## License
 
@@ -135,6 +149,6 @@ Standard contributing rules for professional developer, pull requests, etc.
 ## ✅ Version history
 
 Changelog
-0.1.8 bugfix: fix symlink dir bug. update readme show
-0.1.7 bugfix: scan files crash Changelog 
-0.1.6 bugfix: watch/delete for new/deleted files/dirs
+- 0.1.8 bugfix: fix symlink dir bug. update readme show
+- 0.1.7 bugfix: scan files crash Changelog 
+- 0.1.6 bugfix: watch/delete for new/deleted files/dirs
