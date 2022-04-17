@@ -125,7 +125,7 @@ open http://localhost:3070/
 
 and see code docs like this
 
-![scanwatch live docs](/assets/screenshot_docs.png)
+![scanwatch live docs](/assets/screenshot_docs.png | width=50)
 
 ## 💳 Support
 
