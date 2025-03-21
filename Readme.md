@@ -1,4 +1,4 @@
-# 🇺🇦 scanwatch 0.1.8
+# scanwatch 0.1.9
 
 Scan files and watch for changes
 
@@ -14,7 +14,7 @@ Scanwatch has following features
 
 ## Version history
 
-scanwatch version 0.1.8 (see version history below for details)
+scanwatch version 0.1.9 (see version history below for details)
 
 ## 🏄‍♂️ Quick start
 
@@ -155,6 +155,7 @@ Standard contributing rules for professional developer, pull requests, etc.
 ## ✅ Version history
 
 Changelog
+- 0.1.9 bugfix: fix minimatch 10.0.1
 - 0.1.8 bugfix: fix symlink dir bug. update readme show
 - 0.1.7 bugfix: scan files crash Changelog 
 - 0.1.6 bugfix: watch/delete for new/deleted files/dirs
