@@ -110,9 +110,23 @@ function setup(settings, callback) {
 
       cb(p, stat)
       if (stat.isSymbolicLink()) {
-        let p1 = fs.realpathSync(p)
-        if (fs.lstatSync(p1).isDirectory()) {
-          walkWithLinks(p, cb)
+        try {
+          let link = fs.readlinkSync(p)
+          if (link === '.') {
+            log(`⏭️ skip recursive symlink: ${p} -> .`)
+          } else {
+            let p1 = fs.realpathSync(p)
+            if (fs.lstatSync(p1).isDirectory()) {
+              walkWithLinks(p, cb)
+            }
+          }
+        } catch (e) {
+          // broken symlink - target doesn't exist
+          if (e.code !== 'ENOENT' && 
+              e.code !== 'ERR_UNHANDLED_ERROR' && 
+              e.code !== 'EACCES' && 
+              e.code !== 'ELOOP') throw e
+          log(`❌ broken symlink: ${p} (${e.code})`)
         }
       }
     })
@@ -170,7 +184,15 @@ function setup(settings, callback) {
           // new dir [
           if (!watchList[filename]) {
             watchList[filename] = {}
-            watch(filename, { recursive: false, followSymLinks: false }, watchHandler)
+            try {
+              watch(filename, { recursive: false, followSymLinks: false }, watchHandler)
+            } catch (e) {
+              if (e.code === 'EACCES') {
+                log(`⚠️ permission denied, skipping watch: ${filename}`)
+              } else {
+                throw e
+              }
+            }
           }
           // new dir ]
         }
@@ -225,7 +247,15 @@ function setup(settings, callback) {
 //      log(filename+' changed.');
 //      callback('change', filename);
     }
-    watch(dir, { recursive: false, followSymLinks: false }, watchHandler);
+    try {
+      watch(dir, { recursive: false, followSymLinks: false }, watchHandler);
+    } catch (e) {
+      if (e.code === 'EACCES') {
+        log(`⚠️ permission denied, skipping watch: ${dir}`)
+      } else {
+        throw e
+      }
+    }
   });
   log('Watch for changes ]');
 

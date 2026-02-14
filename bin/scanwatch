@@ -1,0 +1,32 @@
+#!/usr/bin/env node
+
+var scanwatch = require('../scanwatch.js')
+var path = require('path')
+
+var targetPath = process.argv[2]
+
+if (!targetPath) {
+  console.log('Usage: scanwatch <path>')
+  process.exit(1)
+}
+
+targetPath = path.resolve(targetPath)
+
+console.log('Scanning:', targetPath)
+console.log('')
+
+var debug = process.argv.includes('--debug')
+
+scanwatch.setup({
+  paths: [targetPath],
+  debug: true
+}, function(event, filepath) {
+  if (event == 'scan') {
+    if (debug) {
+      console.log(event, filepath)
+    }
+  }
+  else {
+    console.log(event, filepath)
+  }
+})

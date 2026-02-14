@@ -1,4 +1,4 @@
-# scanwatch 0.1.9
+# scanwatch 0.2.0
 
 Scan files and watch for changes
 
@@ -6,21 +6,21 @@ Fast and simple file watcher for Node without all the fanciful decoration
 
 ## Features
 
-Scanwatch has following features
+Scanwatch has the following features
 - extremely fast and simple (242 lines of code and 4 deps only)
 - follow symlinks
-- ignore subpaths with minimalist and regex
+- ignore subpaths with minimatch and regex
 - events callback file scan, skip, changed, deleted
 
 ## Version history
 
-scanwatch version 0.1.9 (see version history below for details)
+scanwatch version 0.2.0 (see version history below for details)
 
 ## 🏄‍♂️ Quick start
 
 ### Pre-requirements
 
-- NodeJS 16.x (Lastest). Scanwatch works with older version also like 8.x  
+- NodeJS 16.x (Latest). Scanwatch works with older versions also like 8.x  
 
 ### Install
 
@@ -81,7 +81,7 @@ Usage example:
 
 ## 📚 Documentation
 
-Scanwatch use simple API for your files 
+Scanwatch uses a simple API for your files 
 
 ### scanwatch.setup(options, callback) 
 
@@ -99,9 +99,9 @@ scanwatch.setup(options, function fileChanged(type, path) {
 
 ```common = {}``` common options 
 
-```common.ignore = []``` ignore patterns array with regex or minimist format
+```common.ignore = []``` ignore patterns array with regex or minimatch format
 
-```paths = {}``` paths object. each path is key like ```options.paths[__dirname+'/node_modules'] = {}```
+```paths = {}``` paths object. Each path is a key like ```options.paths[__dirname+'/node_modules'] = {}```
 
 #### callback events
 
@@ -115,7 +115,7 @@ scanwatch.setup(options, function fileChanged(type, path) {
 
 #### Code and architecture
 
-Scanwatch use self-documenting code and architecture with livecomment
+Scanwatch uses self-documenting code and architecture with livecomment
 
 Install livecomment
 ```
@@ -141,8 +141,8 @@ Donate with crypto:
 - BTC: ```bc1q5ad4pzxxqmc6rehy2y2fn58utm5jkhwphznruj```
 - ETH:
 - Polkadot:
-- Casper:
-- Paypal
+- USDT:
+- Paypal:
 
 ## License
 
@@ -155,6 +155,7 @@ Standard contributing rules for professional developer, pull requests, etc.
 ## ✅ Version history
 
 Changelog
+- 0.2.0 feature: CLI bin. bugfix: broken/recursive symlinks, permission errors
 - 0.1.9 bugfix: fix minimatch 10.0.1
 - 0.1.8 bugfix: fix symlink dir bug. update readme show
 - 0.1.7 bugfix: scan files crash Changelog 
