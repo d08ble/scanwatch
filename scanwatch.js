@@ -144,15 +144,22 @@ function setup(settings, callback) {
     log(dir+' [')
     walkWithLinks(dir, function(p, stat) {
       if (!checkContainsPathComponent(dir, o, p)) {
-        if (!stat.isDirectory()) {
-          callback('scan', p)
-          var d = path.dirname(p)
-          var n = path.basename(p)
-          watchList[d] = watchList[d] || {}
-          watchList[d][n] = true
-        } else {
+        if (stat.isFile()) {
+          try {
+            var fd = fs.openSync(p, 'r')
+            fs.closeSync(fd)
+            callback('scan', p)
+            var d = path.dirname(p)
+            var n = path.basename(p)
+            watchList[d] = watchList[d] || {}
+            watchList[d][n] = true
+          } catch (e) {
+            log(`⏭️ skip unopenable: ${p} (${e.code})`)
+          }
+        } else if (stat.isDirectory()) {
           watchList[p] = {}
         }
+        // skip special files (devices, fifos, sockets, etc.)
       } else {
         callback('skip', p)
       }
